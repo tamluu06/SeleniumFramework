@@ -24,11 +24,19 @@ public class WebUI {
         getWebElement(by).sendKeys(text);
     }
     public static String getTextOfElement(By by){
+        waitForVisibilityOfElement(by);
+        logConsole("Get text of element "+ by);
+        logConsole("==> Text: "+ getWebElement(by).getText());
         return getWebElement(by).getText();
     }
     public static void clearText(By by){
         getWebElement(by).clear();
     }
+
+    public static void logConsole(String message){
+        System.out.println(message);
+    }
+
     public static void sleep(double seconds) {
         try {
             Thread.sleep((long) (seconds * 1000));

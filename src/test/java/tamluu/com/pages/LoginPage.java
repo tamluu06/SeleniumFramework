@@ -4,6 +4,7 @@ import drivers.DriverManager;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import utilities.WebUI;
+import static utilities.WebUI.*;
 
 public class LoginPage {
 
@@ -16,6 +17,7 @@ public class LoginPage {
     By passwordInput = By.xpath("//input[@id='password']");
     By loginButton = By.xpath("//button[normalize-space()='Sign in']");
     By emailErrorMessage = By.xpath("//form[@id='signin-form']//div[1]");
+    By pageTitle = By.xpath("//h4[normalize-space()='Dashboard']");
 
     public void enterEmail(String email){
         WebUI.setTextForElement(emailInput,email);
@@ -29,15 +31,18 @@ public class LoginPage {
     public void verifyEmailErrorMessage(){
         Assert.assertTrue(DriverManager.getDriver().findElement(emailErrorMessage).isDisplayed(),"No error message displayed");
         Assert.assertEquals(WebUI.getTextOfElement(emailErrorMessage),"Authentication failed!","Error message NOT match");
+
     }
 
     public void loginValid(String email, String password){
-        WebUI.openURL(URL);
+        openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);
         WebUI.clearText(passwordInput);
         enterPassword(password);
         clickOnLoginButton();
+        WebUI.getTextOfElement(pageTitle);
+        WebUI.verifyVisibilityOfElement(pageTitle);
     }
     public void loginInvalid(String email, String password){
         WebUI.openURL(URL);
