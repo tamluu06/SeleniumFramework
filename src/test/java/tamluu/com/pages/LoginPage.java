@@ -45,7 +45,8 @@ public class LoginPage {
         enterEmail(email);
         WebUI.clearText(passwordInput);
         enterPassword(password);
-        WebUI.sleep(3);
+        clickOnLoginButton();
+        WebUI.waitForVisibilityOfElement(emailErrorMessage);
         verifyEmailErrorMessage();
 
     }
