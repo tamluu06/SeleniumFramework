@@ -18,6 +18,7 @@ public class BaseTest {
     public static void createDriver(@Optional("chrome") String browserName) {
         WebDriver driver = setupDriver(browserName);
         DriverManager.setDriver(driver);
+
     }
 
     public static WebDriver setupDriver(String browserName) {
@@ -67,7 +68,7 @@ public class BaseTest {
         return driver;
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public static void closeDriver() {
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();

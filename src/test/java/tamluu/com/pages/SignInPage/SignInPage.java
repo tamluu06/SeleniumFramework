@@ -1,23 +1,30 @@
-package tamluu.com.pages;
+package tamluu.com.pages.SignInPage;
 
 import drivers.DriverManager;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import tamluu.com.pages.DashboardPage.DashboardPage;
 import utilities.WebUI;
-import static utilities.WebUI.*;
 
-public class LoginPage {
+import static utilities.WebUI.openURL;
+
+public class SignInPage {
 
     private String URL = "https://rise.fairsketch.com/signin";
     private String PAGE_TEXT = "Login";
 
     //Declaring locators of objects in Login page
 
-    By emailInput = By.xpath("//input[@id='email']");
-    By passwordInput = By.xpath("//input[@id='password']");
-    By loginButton = By.xpath("//button[normalize-space()='Sign in']");
-    By emailErrorMessage = By.xpath("//form[@id='signin-form']//div[1]");
-    By pageTitle = By.xpath("//h4[normalize-space()='Dashboard']");
+    public By emailInput = By.xpath("//input[@id='email']");
+    public By passwordInput = By.xpath("//input[@id='password']");
+    public By loginButton = By.xpath("//button[normalize-space()='Sign in']");
+    public By emailErrorMessage = By.xpath("//form[@id='signin-form']//div[1]");
+    public By pageTitle = By.xpath("//h4[normalize-space()='Dashboard']");
+    public By projectsOverview = By.xpath("//div[@id='page-content']/div[4]/div[1]/div[1]/div[1]");
+
+    public By invoiceOverview = By.xpath("//div[@id='page-content']/div[4]/div[2]/div[1]/div[1]/div[1]");
+
+
 
     public void enterEmail(String email){
         WebUI.setTextForElement(emailInput,email);
@@ -34,7 +41,7 @@ public class LoginPage {
 
     }
 
-    public void loginValid(String email, String password){
+    public DashboardPage signInAsAdmin(String email, String password){
         openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);
@@ -42,9 +49,11 @@ public class LoginPage {
         enterPassword(password);
         clickOnLoginButton();
         WebUI.getTextOfElement(pageTitle);
-        WebUI.verifyVisibilityOfElement(pageTitle);
+        return new DashboardPage();
+
     }
-    public void loginInvalid(String email, String password){
+
+    public void signInInvalid(String email, String password){
         WebUI.openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);
