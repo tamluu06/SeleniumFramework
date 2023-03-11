@@ -13,7 +13,6 @@ public class DashboardPage {
     public By invoiceOverview = By.xpath("//div[@id='page-content']/div[4]/div[2]/div[1]/div[1]/div[1]");
 
     public void validateElementsOnDashboard() {
-
         WebUI.verifyVisibilityOfElement(pageTitle);
         WebUI.verifyVisibilityOfElement(projectsOverview);
         WebUI.getTextOfElement(projectsOverview);

@@ -11,11 +11,10 @@ public class DashboardTest extends BaseTest {
     DashboardPage dashboardPage;
 
     @Test
-    public void validateElements() {
+    public void validateElementsOnDashboardPage() {
         signInPage = new SignInPage();
         dashboardPage = signInPage.signInAsAdmin("admin@demo.com", "riseDemo");
         dashboardPage.validateElementsOnDashboard();
-
-
     }
+
 }

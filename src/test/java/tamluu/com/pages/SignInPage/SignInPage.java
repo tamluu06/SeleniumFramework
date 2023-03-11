@@ -38,7 +38,6 @@ public class SignInPage {
     public void verifyEmailErrorMessage(){
         Assert.assertTrue(DriverManager.getDriver().findElement(emailErrorMessage).isDisplayed(),"No error message displayed");
         Assert.assertEquals(WebUI.getTextOfElement(emailErrorMessage),"Authentication failed!","Error message NOT match");
-
     }
 
     public DashboardPage signInAsAdmin(String email, String password){
@@ -50,7 +49,6 @@ public class SignInPage {
         clickOnLoginButton();
         WebUI.getTextOfElement(pageTitle);
         return new DashboardPage();
-
     }
 
     public void signInInvalid(String email, String password){
@@ -62,7 +60,6 @@ public class SignInPage {
         clickOnLoginButton();
         WebUI.waitForVisibilityOfElement(emailErrorMessage);
         verifyEmailErrorMessage();
-
     }
 
 }

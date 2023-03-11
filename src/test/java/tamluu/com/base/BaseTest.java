@@ -17,8 +17,8 @@ public class BaseTest {
     @Parameters({"browserName"})
     public static void createDriver(@Optional("chrome") String browserName) {
         WebDriver driver = setupDriver(browserName);
+        //Set initiated driver to ThreadLocal
         DriverManager.setDriver(driver);
-
     }
 
     public static WebDriver setupDriver(String browserName) {
