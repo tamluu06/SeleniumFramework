@@ -199,7 +199,7 @@ public class WebUI {
      * Highlighting border of element with red background
      */
     public static WebElement highLightElement(By by) {
-        // Tô màu border ngoài chính element chỉ định - màu đỏ (có thể đổi màu khác)
+
         waitForVisibilityOfElement(by);
         if (DriverManager.getDriver() instanceof JavascriptExecutor) {
             ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].style.border='3px solid red'", getWebElement(by));
@@ -218,7 +218,7 @@ public class WebUI {
     }
 
     /**
-     * Hover mouse over element
+     * Hovering mouse over element
      */
     public static void hoverOnElement(By by) {
         waitForPageLoaded();
