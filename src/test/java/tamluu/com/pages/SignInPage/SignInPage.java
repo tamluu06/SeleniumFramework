@@ -51,6 +51,17 @@ public class SignInPage {
         return new DashboardPage();
     }
 
+    public DashboardPage signIn(String email, String password){
+        openURL(URL);
+        WebUI.clearText(emailInput);
+        enterEmail(email);
+        WebUI.clearText(passwordInput);
+        enterPassword(password);
+        clickOnLoginButton();
+        //WebUI.getTextOfElement(pageTitle);
+        return new DashboardPage();
+    }
+
     public void signInInvalid(String email, String password){
         WebUI.openURL(URL);
         WebUI.clearText(emailInput);
