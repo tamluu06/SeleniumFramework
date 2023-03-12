@@ -25,22 +25,24 @@ public class SignInPage {
     public By invoiceOverview = By.xpath("//div[@id='page-content']/div[4]/div[2]/div[1]/div[1]/div[1]");
 
 
+    public void enterEmail(String email) {
+        WebUI.setTextForElement(emailInput, email);
+    }
 
-    public void enterEmail(String email){
-        WebUI.setTextForElement(emailInput,email);
+    public void enterPassword(String password) {
+        WebUI.setTextForElement(passwordInput, password);
     }
-    public void enterPassword(String password){
-        WebUI.setTextForElement(passwordInput,password);
-    }
-      public void clickOnLoginButton(){
+
+    public void clickOnLoginButton() {
         WebUI.clickOnWebElement(loginButton);
     }
-    public void verifyEmailErrorMessage(){
-        Assert.assertTrue(DriverManager.getDriver().findElement(emailErrorMessage).isDisplayed(),"No error message displayed");
-        Assert.assertEquals(WebUI.getTextOfElement(emailErrorMessage),"Authentication failed!","Error message NOT match");
+
+    public void verifyEmailErrorMessage() {
+        Assert.assertTrue(DriverManager.getDriver().findElement(emailErrorMessage).isDisplayed(), "No error message displayed");
+        Assert.assertEquals(WebUI.getTextOfElement(emailErrorMessage), "Authentication failed!", "Error message NOT match");
     }
 
-    public DashboardPage signInAsAdmin(String email, String password){
+    public DashboardPage signInAsAdmin(String email, String password) {
         openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);
@@ -51,18 +53,18 @@ public class SignInPage {
         return new DashboardPage();
     }
 
-    public DashboardPage signIn(String email, String password){
+    public DashboardPage signIn(String email, String password) {
         openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);
         WebUI.clearText(passwordInput);
         enterPassword(password);
         clickOnLoginButton();
-        //WebUI.getTextOfElement(pageTitle);
+        WebUI.getTextOfElement(pageTitle);
         return new DashboardPage();
     }
 
-    public void signInInvalid(String email, String password){
+    public void signInInvalid(String email, String password) {
         WebUI.openURL(URL);
         WebUI.clearText(emailInput);
         enterEmail(email);

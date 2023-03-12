@@ -1,11 +1,13 @@
 package tamluu.com.base;
 
 import drivers.DriverManager;
+import helpers.CaptureHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -68,8 +70,15 @@ public class BaseTest {
         return driver;
     }
 
+
+
     @AfterMethod(alwaysRun = true)
-    public static void closeDriver() {
+    public static void tearDown(ITestResult iTestResult) {
+        //Taking screenshots of failed testcases
+        if(iTestResult.getStatus() == ITestResult.FAILURE){
+            CaptureHelper.captureScreenshot(iTestResult.getName());
+        }
+        //Eliminating driver
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();
         }

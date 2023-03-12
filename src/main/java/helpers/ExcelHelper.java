@@ -85,7 +85,7 @@ public class ExcelHelper {
         }
     }
 
-    //Gọi ra hàm này nè
+
     public String getCellData(String columnName, int rowNum) {
         return getCellData(rowNum, columns.get(columnName));
     }
@@ -207,7 +207,6 @@ public class ExcelHelper {
     }
 
 
-
     public int getColumns() {
         try {
             row = sheet.getRow(0);
@@ -272,9 +271,6 @@ public class ExcelHelper {
 
         return data;
     }
-
-
-
 
 
 }
