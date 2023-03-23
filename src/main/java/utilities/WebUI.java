@@ -54,8 +54,8 @@ public class WebUI {
      */
     public static String getTextOfElement(By by){
         waitForVisibilityOfElement(by);
-        logConsole("Get text of element "+ by);
-        logConsole("==> Text: "+ getWebElement(by).getText());
+        LogUtils.info("Get text of element "+ by);
+        LogUtils.info("==> Text: "+ getWebElement(by).getText());
         return getWebElement(by).getText();
     }
 
@@ -224,7 +224,7 @@ public class WebUI {
         waitForPageLoaded();
         Actions action = new Actions(DriverManager.getDriver());
         action.moveToElement(getWebElement(by));
-        logConsole("Hovered on element " + getWebElement(by));
+        LogUtils.info("Hovered on element " + getWebElement(by));
     }
 
 

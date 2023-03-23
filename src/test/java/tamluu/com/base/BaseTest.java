@@ -1,18 +1,15 @@
 package tamluu.com.base;
 
 import drivers.DriverManager;
-import helpers.CaptureHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-
+import org.testng.annotations.*;
+import tamluu.com.listeners.TestListener;
+@Listeners(TestListener.class)
 public class BaseTest {
 
     @BeforeMethod
@@ -46,8 +43,10 @@ public class BaseTest {
     private static WebDriver initChromeDriver() {
         WebDriver driver;
         System.out.println("Launching Chrome browser...");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         return driver;
     }
@@ -73,11 +72,7 @@ public class BaseTest {
 
 
     @AfterMethod(alwaysRun = true)
-    public static void tearDown(ITestResult iTestResult) {
-        //Taking screenshots of failed testcases
-        if(iTestResult.getStatus() == ITestResult.FAILURE){
-            CaptureHelper.captureScreenshot(iTestResult.getName());
-        }
+    public static void tearDown() {
         //Eliminating driver
         if (DriverManager.getDriver() != null) {
             DriverManager.quit();

@@ -4,8 +4,10 @@ import dataproviders.SignInData;
 import org.testng.annotations.Test;
 import tamluu.com.base.BaseTest;
 import tamluu.com.pages.SignInPage.SignInPage;
+import utilities.LogUtils;
 
 import java.util.Hashtable;
+
 
 public class SignInTest extends BaseTest {
 
@@ -25,12 +27,14 @@ public class SignInTest extends BaseTest {
 
     @Test(dataProvider ="data_provider_signin_test_excel_custom_row", dataProviderClass = SignInData.class)
     public void signInWithDataFromExcelCustomRow(Hashtable<String, String>data){
+
         signInPage = new SignInPage();
         signInPage.signIn(data.get("EMAIL"), data.get("PASSWORD"));
     }
 
     @Test
     public void signInNegative() {
+        LogUtils.info("Running test case: signInNegative");
         signInPage = new SignInPage();
         signInPage.signInInvalid("admin@demo1.com", "riseDemo");
     }

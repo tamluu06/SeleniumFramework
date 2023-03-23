@@ -24,7 +24,7 @@ public class CaptureHelper {
             }
             FileHandler.copy(source, new File(SystemsHelper.getCurrentDir() + PropertiesHelper.getValue("SCREENSHOT_PATH") + File.separator + screenshotName + "_" + dateFormat.format(new Date()) + ".png"));
             System.out.println("Screenshot taken: " + screenshotName);
-            System.out.println("Screenshot taken current URL: " + DriverManager.getDriver().getCurrentUrl());
+            System.out.println("Screenshot taken @ current URL: " + DriverManager.getDriver().getCurrentUrl());
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot: " + e.getMessage());
         }

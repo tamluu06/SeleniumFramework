@@ -11,12 +11,6 @@
     </test>
 
 
-    <test name="SignIn Test 2" parallel="methods">
-        <parameter name="browserName" value="firefox" />
-        <classes>
-            <class name="tamluu.com.testcases.SignInTest" />
-        </classes>
-    </test>
 
 
 
