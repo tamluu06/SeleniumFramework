@@ -2,9 +2,13 @@
 
 <suite name="Suite SignIn Test" verbose="1" parallel="tests">
 
+    <listeners>
+        <listener class-name="tamluu.com.listeners.TestListener"/>
+    </listeners>
 
-    <test name="SignIn Test 1" parallel="methods">
-        <parameter name="browserName" value="edge" />
+
+    <test name="SignIn Test 1" parallel="methods" thread-count="4">
+        <parameter name="browserName" value="chrome" />
         <classes>
             <class name="tamluu.com.testcases.SignInTest" />
         </classes>
