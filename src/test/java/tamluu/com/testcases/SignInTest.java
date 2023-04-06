@@ -20,7 +20,7 @@ public class SignInTest extends BaseTest {
     }
 
     @Test(dataProvider ="data_provider_signin_test_excel", dataProviderClass = SignInData.class)
-    public void signInWithDataFromExcel(String email, String password, String result){
+    public void signInWithDataFromExcel(String email, String password){
         signInPage = new SignInPage();
         signInPage.signIn(email, password);
     }
