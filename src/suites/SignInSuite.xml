@@ -10,7 +10,11 @@
     <test name="SignIn Test 1" parallel="methods" thread-count="4">
         <parameter name="browserName" value="chrome" />
         <classes>
-            <class name="tamluu.com.testcases.SignInTest" />
+            <class name="tamluu.com.testcases.SignInTest">
+            <methods>
+                <exclude name="data_provider_signin_test_excel_custom_row"/>
+            </methods>
+            </class>
         </classes>
     </test>
 

@@ -36,6 +36,6 @@ public class SignInTest extends BaseTest {
     public void signInNegative() {
         LogUtils.info("Running test case: signInNegative");
         signInPage = new SignInPage();
-        signInPage.signInInvalid("admin@demo1.com", "riseDemo");
+        signInPage.signInInvalid("admin@demo.com", "riseDemo");
     }
 }
