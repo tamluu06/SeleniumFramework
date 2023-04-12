@@ -1,7 +1,7 @@
-package dataproviders;
+package tamluu.com.dataproviders;
 
-import helpers.ExcelHelper;
-import helpers.SystemsHelper;
+import tamluu.com.helpers.ExcelHelper;
+import tamluu.com.helpers.SystemsHelper;
 import org.testng.annotations.DataProvider;
 
 public class SignInData {

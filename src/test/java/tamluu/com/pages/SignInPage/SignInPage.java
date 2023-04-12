@@ -1,12 +1,12 @@
 package tamluu.com.pages.SignInPage;
 
-import drivers.DriverManager;
+import tamluu.com.drivers.DriverManager;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import tamluu.com.pages.DashboardPage.DashboardPage;
-import utilities.WebUI;
+import tamluu.com.utilities.WebUI;
 
-import static utilities.WebUI.openURL;
+import static tamluu.com.utilities.WebUI.openURL;
 
 public class SignInPage {
 

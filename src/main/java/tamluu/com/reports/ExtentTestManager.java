@@ -1,11 +1,11 @@
-package reports;
+package tamluu.com.reports;
 
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
-import drivers.DriverManager;
+import tamluu.com.drivers.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

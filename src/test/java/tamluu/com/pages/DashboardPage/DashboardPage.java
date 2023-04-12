@@ -1,7 +1,7 @@
 package tamluu.com.pages.DashboardPage;
 
 import org.openqa.selenium.By;
-import utilities.WebUI;
+import tamluu.com.utilities.WebUI;
 
 public class DashboardPage {
     private String URL ="https://rise.fairsketch.com/dashboard";

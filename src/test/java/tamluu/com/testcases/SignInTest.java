@@ -1,12 +1,13 @@
 package tamluu.com.testcases;
 
-import dataproviders.SignInData;
 import org.testng.annotations.Test;
 import tamluu.com.base.BaseTest;
+import tamluu.com.dataproviders.SignInData;
 import tamluu.com.pages.SignInPage.SignInPage;
-import utilities.LogUtils;
+import tamluu.com.utilities.LogUtils;
 
 import java.util.Hashtable;
+
 
 
 public class SignInTest extends BaseTest {

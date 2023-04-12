@@ -1,7 +1,7 @@
-package utilities;
+package tamluu.com.utilities;
 
 import com.aventstack.extentreports.Status;
-import drivers.DriverManager;
+import tamluu.com.drivers.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import reports.ExtentTestManager;
+import tamluu.com.reports.ExtentTestManager;
 
 import java.time.Duration;
 import java.util.List;
