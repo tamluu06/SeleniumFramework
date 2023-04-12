@@ -1,6 +1,6 @@
-package helpers;
+package tamluu.com.helpers;
 
-import drivers.DriverManager;
+import tamluu.com.drivers.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;

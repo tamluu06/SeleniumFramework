@@ -1,6 +1,7 @@
-package utilities;
+package tamluu.com.utilities;
 
-import drivers.DriverManager;
+import com.aventstack.extentreports.Status;
+import tamluu.com.drivers.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import tamluu.com.reports.ExtentTestManager;
 
 import java.time.Duration;
 import java.util.List;
@@ -26,6 +28,8 @@ public class WebUI {
     public static void openURL(String URL){
         waitForPageLoaded();
         DriverManager.getDriver().get(URL);
+        LogUtils.info("Opening URL: " + URL);
+        ExtentTestManager.logMessage(Status.PASS,"Opening URL: " + URL);
     }
 
     /**
@@ -40,6 +44,8 @@ public class WebUI {
      */
     public static void clickOnWebElement(By by){
         getWebElement(by).click();
+        LogUtils.info("Clicked on element "+by);
+        ExtentTestManager.logMessage(Status.PASS,"Clicke on element "+by);
     }
 
     /**
@@ -47,6 +53,7 @@ public class WebUI {
      */
     public static void setTextForElement(By by, String text){
         getWebElement(by).sendKeys(text);
+        ExtentTestManager.logMessage(Status.PASS,"Set text for element "+by);
     }
 
     /**
@@ -56,6 +63,8 @@ public class WebUI {
         waitForVisibilityOfElement(by);
         LogUtils.info("Get text of element "+ by);
         LogUtils.info("==> Text: "+ getWebElement(by).getText());
+        ExtentTestManager.logMessage(Status.PASS,"Get text of element "+by);
+        ExtentTestManager.logMessage(Status.INFO,"==> Text: "+ getWebElement(by).getText());
         return getWebElement(by).getText();
     }
 
@@ -224,7 +233,8 @@ public class WebUI {
         waitForPageLoaded();
         Actions action = new Actions(DriverManager.getDriver());
         action.moveToElement(getWebElement(by));
-        LogUtils.info("Hovered on element " + getWebElement(by));
+        LogUtils.info("Hovered on element " + by);
+        ExtentTestManager.logMessage(Status.PASS,"Hovered on element " + by);
     }
 
 

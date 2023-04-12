@@ -1,25 +1,25 @@
 package tamluu.com.base;
 
-import drivers.DriverManager;
+import tamluu.com.drivers.DriverManager;
+import tamluu.com.helpers.PropertiesHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
+import tamluu.com.listeners.TestListener;
 
 
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     @BeforeMethod
     @Parameters({"browserName"})
     public static void createDriver(@Optional("chrome") String browserName) {
         WebDriver driver = setupDriver(browserName);
+        PropertiesHelper.loadAllFiles();
         //Set initiated driver to ThreadLocal
         DriverManager.setDriver(driver);
     }
