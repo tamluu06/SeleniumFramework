@@ -3,6 +3,24 @@
 <suite name="Suite SignIn Test" verbose="1" >
 
 
+    <test name="SignIn Test 1" parallel="methods" thread-count="4">
+        <parameter name="browserName" value="chrome" />
+        <classes>
+            <class name="tamluu.com.testcases.SignInTest"/>
+        </classes>
+    </test>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--    <test name="SignIn Test 1" parallel="methods" thread-count="4">-->
@@ -17,12 +35,6 @@
 <!--    </test>-->
 
 
-    <test name="SignIn Test 1" parallel="methods" thread-count="4">
-        <parameter name="browserName" value="chrome" />
-        <classes>
-            <class name="tamluu.com.testcases.SignInTest"/>
-        </classes>
-    </test>
 
 
 
