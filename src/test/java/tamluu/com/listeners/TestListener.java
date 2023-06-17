@@ -35,13 +35,13 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         //Logging test case into Extent Report
-        LogUtils.info("Running test case " + result.getName());
+        LogUtils.info("Running testcase " + result.getName());
         ExtentTestManager.saveToReport(getTestName(result), getTestDescription(result));
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        LogUtils.info("Test case " + result.getName() + " is passed.");
+        LogUtils.info("Testcase " + result.getName() + " is passed.");
 
         //Extent Report
         ExtentTestManager.logMessage(Status.PASS, result.getName() + " is passed.");
@@ -49,7 +49,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        LogUtils.error("Test case " + result.getName() + " is failed.");
+        LogUtils.error("Testcase " + result.getName() + " is failed.");
         //Screenshot when the test fails
         CaptureHelper.captureScreenshot(result.getName());
         LogUtils.error(result.getThrowable().toString());
@@ -67,7 +67,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        LogUtils.error("Test case " + result.getName() + " is skipped.");
+        LogUtils.error("Testcase " + result.getName() + " is skipped.");
         LogUtils.error(result.getThrowable().toString());
 
         //Extent Report
